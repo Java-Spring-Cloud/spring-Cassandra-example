@@ -15,12 +15,14 @@
  */
 package example.springdata.cassandra.basic;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import org.springframework.data.cassandra.mapping.Column;
 import org.springframework.data.cassandra.mapping.PrimaryKey;
 import org.springframework.data.cassandra.mapping.Table;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 
 /**
  * Sample user class.
@@ -40,6 +42,6 @@ public class User {
 	@Column("lname") private String lastname;
 
 	public User(Long id) {
-		this.setId(id);
+		this.id=id;
 	}
 }

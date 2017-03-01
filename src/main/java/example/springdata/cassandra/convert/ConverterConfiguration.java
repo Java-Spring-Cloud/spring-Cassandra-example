@@ -107,8 +107,8 @@ class ConverterConfiguration extends AbstractCassandraConfiguration {
 
 			CustomAddressbook result = new CustomAddressbook();
 
-			result.setTheId(source.getString("id"));
-			result.setMyDetailsAsJson(source.getString("me"));
+			result.theId = (source.getString("id"));
+			result.myDetailsAsJson = (source.getString("me"));
 
 			return result;
 		}
