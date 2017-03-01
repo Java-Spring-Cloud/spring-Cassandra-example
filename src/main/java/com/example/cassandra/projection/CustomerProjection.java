@@ -13,17 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.cassandra.projection;
-
-import org.springframework.beans.factory.annotation.Value;
+package com.example.cassandra.projection;
 
 /**
- * An example of using SpEL with projections.
+ * An example projection interface containing only the firstname.
  *
  * @author Mark Paluch
  */
-interface CustomerSummary {
+interface CustomerProjection {
 
-	@Value("#{target.firstname + ' ' + target.lastname}")
-	String getFullName();
+	String getFirstname();
 }

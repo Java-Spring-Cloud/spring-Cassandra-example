@@ -13,26 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.cassandra.convert;
+package com.example.cassandra.projection;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.mapping.Table;
 
-import lombok.Data;
-
-import java.util.List;
+import lombok.Value;
 
 /**
- * Sample Addressbook class.
- * 
  * @author Mark Paluch
  */
-@Data
+@Value
 @Table
-public class Addressbook {
+class Customer {
 
 	@Id String id;
-
-	Contact me;
-	List<Contact> friends;
+	String firstname, lastname;
 }

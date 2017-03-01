@@ -13,31 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.cassandra.udt;
+package com.example.cassandra.udt;
 
-import com.datastax.driver.core.DataType.Name;
-import com.datastax.driver.core.UDTValue;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.List;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.cassandra.mapping.CassandraType;
-import org.springframework.data.cassandra.mapping.Table;
+import org.springframework.data.cassandra.mapping.UserDefinedType;
 
 /**
  * @author Mark Paluch
  */
 @Data
-@Table
-public class Person {
+@UserDefinedType
+@AllArgsConstructor
+public class Address {
 
-	@Id int id;
-
-	String firstname, lastname;
-	Address current;
-	List<Address> previous;
-
-	@CassandraType(type = Name.UDT, userTypeName = "address")
-	UDTValue alternative;
+	String street, zip, city;
 }

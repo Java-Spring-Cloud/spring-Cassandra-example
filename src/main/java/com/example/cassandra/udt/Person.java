@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 the original author or authors.
+ * Copyright 2017 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.cassandra.convert;
+package com.example.cassandra.udt;
 
+import com.datastax.driver.core.DataType.Name;
+import com.datastax.driver.core.UDTValue;
 import lombok.Data;
+
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.cassandra.mapping.CassandraType;
+import org.springframework.data.cassandra.mapping.Table;
 
 /**
  * @author Mark Paluch
  */
 @Data
-public class CustomAddressbook {
+@Table
+public class Person {
 
-	String theId;
-	String myDetailsAsJson;
+	@Id int id;
+
+	String firstname, lastname;
+	Address current;
+	List<Address> previous;
+
+	@CassandraType(type = Name.UDT, userTypeName = "address")
+	UDTValue alternative;
 }
