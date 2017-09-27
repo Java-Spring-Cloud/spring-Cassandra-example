@@ -52,8 +52,8 @@ class BasicConfiguration {
 
 			CassandraClusterFactoryBean cluster = new CassandraClusterFactoryBean();
 			//cluster.setClusterName("sample");
-			cluster.setContactPoints(env.getProperty("cassandra.contactpoints"));
-			cluster.setPort(Integer.parseInt(env.getProperty("cassandra.port")));
+			cluster.setContactPoints(env.getProperty("spring.data.cassandra.contact-points"));
+			cluster.setPort(Integer.parseInt(env.getProperty("spring.data.cassandra.port")));
 			return cluster;
 		}		
 		

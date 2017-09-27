@@ -11,6 +11,6 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
 	@Override
 	protected String getKeyspaceName() {
 		// TODO Auto-generated method stub
-		return "example";
+		return "testmac";
 	} 
 }
